@@ -45,14 +45,6 @@ class PostController extends Controller
 
     public function store() {
 
-	//	$this->validate(request(),[
-
-	//	'title' => 'required',
-	//	'body'  => 'required',
-    //    'user_id' => auth()->id()
-
-
-	//	]);
 
         auth()->user()->publish(
 

@@ -1,9 +1,6 @@
 @extends('layout')
-
 @section('content')
-
 <!-- listing title/body of a post -->
-
 <div class="col-sm-8 blog-main">
 	<h1>{{$post->title}}</h1>
 		<p>{{$post->body}}</p>
@@ -19,12 +16,8 @@
 		@endforeach
 	</ul>
 @endif
-
-
 <hr>
-
 <!-- listing comments of an post -->
-
 	<div class="comments">
 	  	<ul class="list-group">
 			@foreach($post->comments as $comment)
@@ -35,18 +28,21 @@
 						{{ $comment->body }}
 							@if (Auth::check() )
 								<div class="container">
-									<div class="row">
+									<div class="row ml-auto">
 										<div class="form-group">
+											<div class="row">
 												<form action="/comment/{{ $comment->id }}/edit" method="POST">
                         							{{ csrf_field() }}
-														<button type="submit" class="btn btn-primary">Edit comment</button>
+														<button type="submit" class="btn btn-primary">Edit comment</button> 
 												</form>
+													&nbsp; &nbsp;
 												<form action="/comment/{{ $comment->id }}/delete" method="POST">
 													{{ csrf_field() }}
-													{{ method_field('DELETE') }}
+													{{ method_field('DELETE') }} 
 														<button type="submit" class="btn btn-primary">Delete comment post</button>
 												</form>
-										</div>
+											</div>
+										</div>	
 									</div>
 								</div>
 							@endif
